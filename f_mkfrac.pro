@@ -1,8 +1,8 @@
-; f_mkfrac(x): 
 ; 
-; A function for converting an integral or half-integral number to 
-; a string with the corresponding fractional number.
-;   
+;   IDL function for converting an integral or half-integral number to 
+;   a string with the corresponding fractional number
+;   ==================================================================
+;
 ;   inp: any integral or half-integral number x with abs(x) < 50
 ;   out: 5 char right adjusted string containing a fractional representation of x, 
 ;           e.g. " -3/2", "-11/2" or "    2"
