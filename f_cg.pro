@@ -22,10 +22,9 @@
 function f_cg, j1, j2, j3, m1, m2, m3
   compile_opt idl2
   
-  ; Determine the Clebsch-Gordan coeff from the calculated Wigner 3j symbol with flipped sign of m3.
-  ; Note in the following expression that m3 has again been multiplied with -1 to restore its original sign.
+  ; Determine the Clebsch-Gordan coeff via Wigner 3j symbol.
   
-  cg = (-1.0d)^(j1-j2-m3) * sqrt(2.0d*double(j3) + 1.0d) * f_wig3j(j1,j2,j3,m1,m2,-m3)
+  cg = (-1.0d)^(j1-j2+m3) * sqrt(2.0d*double(j3) + 1.0d) * f_wig3j(j1,j2,j3,m1,m2,-m3)
 
   return, cg
 

@@ -19,7 +19,7 @@
 ;
 ;   Jon Grumer, Uppsala University, 2018
 
-function f_cg, j1, j2, j3, m1, m2, m3
+function f_cg_indep, j1, j2, j3, m1, m2, m3
   compile_opt idl2
   
   ; Flip the sign of m3, to determine the correct 3j-symbol.
