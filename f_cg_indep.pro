@@ -19,11 +19,11 @@
 ;
 ;   Jon Grumer, Uppsala University, 2018
 
-function f_cg_indep, j1, j2, j3, m1, m2, m3
+function f_cg_indep, j1, j2, j3, m1, m2, m3_tmp
   compile_opt idl2
   
   ; Flip the sign of m3, to determine the correct 3j-symbol.
-  m3 = - m3
+  m3 = - m3_tmp
 
   if ( j1 ge abs(m1)        and j2 ge abs(m2)           and j3 ge abs(m3)           and $ ; ji >= abs(mi) >= 0, for all i's
     4*j1 mod 2 eq 0         and 4*j1 mod 2 eq 0         and 4*j1 mod 2 eq 0         and $ ; ji integral or half-integral, for all i's
@@ -52,8 +52,7 @@ function f_cg_indep, j1, j2, j3, m1, m2, m3
     w3j = w3j * (-1.0d)^(j1-j2-m3) * sqrt( double(numerator) / double(denominator) )
 
     ; Determine the Clebsch-Gordan coeff from the calculated Wigner 3j symbol with flipped sign of m3.
-    ; Note in the following expression that m3 has again been multiplied with -1 to restore its original sign.
-    cg  = w3j * (-1.0d)^(j1-j2-m3) * sqrt(2.0d*j3 + 1.0d)
+    cg  = w3j * (-1.0d)^(j1-j2+m3_tmp) * sqrt(2.0d*j3 + 1.0d)
   
   endif else begin
     cg = 0.0d
