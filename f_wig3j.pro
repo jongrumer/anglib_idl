@@ -2,14 +2,14 @@
 ;   IDL Function for computing Wigner 3j-symbols: (j1 j2 j3)
 ;   ============================================  (m1 m2 m3)
 ;
-;   Based on and follows the notation of expression (5.1) in 
+;   Based on and follows the notation of expression (5.1) in
 ;   R.D. Cowan, "The Theory of Atomic Structure and Spectra"
 ;
 ;   Jon Grumer, Uppsala University, 2018
 
 function f_wig3j, j1, j2, j3, m1, m2, m3
   compile_opt idl2
-  
+
   if ( j1 ge abs(m1)        and j2 ge abs(m2)           and j3 ge abs(m3)           and $ ; ji >= abs(mi) >= 0, for all i's
     4*j1 mod 2 eq 0         and 4*j1 mod 2 eq 0         and 4*j1 mod 2 eq 0         and $ ; ji integral or half-integral, for all i's
     2*(j1-m1) mod 2 eq 0    and 2*(j2-m2) mod 2 eq 0    and 2*(j3-m3) mod 2 eq 0    and $ ; both ji and mi must ebe either integral, for all i's
@@ -21,9 +21,9 @@ function f_wig3j, j1, j2, j3, m1, m2, m3
 
     kmin = max( [0, j2-j3-m1, j1-j3+m2])
     kmax = min( [j1+j2-j3, j1-m1, j2+m2])
-    
+
     w3j = 0.0d
-    
+
     for k = kmin, kmax do begin
       numerator = 1.0d
       denominator = factorial(k) * factorial(j1+j2-j3-k) * factorial(j1-m1-k) *        $

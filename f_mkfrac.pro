@@ -1,12 +1,12 @@
-; 
-;   IDL function for converting an integral or half-integral number to 
+;
+;   IDL function for converting an integral or half-integral number to
 ;   a string with the corresponding fractional number
 ;   ==================================================================
 ;
 ;   inp: any integral or half-integral number x with abs(x) < 50
-;   out: 5 char right adjusted string containing a fractional representation of x, 
+;   out: 5 char right adjusted string containing a fractional representation of x,
 ;           e.g. " -3/2", "-11/2" or "    2"
-;   
+;
 ;   Jon Grumer, Uppsala, 2018
 
 function f_mkfrac, x
@@ -17,7 +17,7 @@ function f_mkfrac, x
   ; Check if x = 0
   if x eq 0. then begin
     s = '    0'
-  ; Check if x is integral  
+  ; Check if x is integral
   endif else if abs(x*2) mod 2 eq 0 then begin
     s = string(x, '(i5)')
   ; Check if x is half-integral
